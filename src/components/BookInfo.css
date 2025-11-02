@@ -1,0 +1,50 @@
+/* Styles scoped for the BookInfo component */
+
+.bookInfo {
+  max-width: 720px;
+  width: 100%;
+  padding: 16px;
+}
+
+.bookInfo__error {
+  color: #b91c1c;
+  margin-bottom: 8px;
+}
+
+.bookInfo__row {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.bookInfo__thumb {
+  width: 96px;
+  height: auto;
+}
+
+.bookInfo__title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.bookInfo__authors {
+  opacity: 0.8;
+}
+
+.bookInfo__meta {
+  margin-top: 8px;
+}
+
+.bookInfo__categories {
+  margin-top: 6px;
+  opacity: 0.85;
+}
+
+.bookInfo__desc {
+  margin-top: 12px;
+  line-height: 1.4;
+}
+
+.bookInfo__buy {
+  margin-top: 8px;
+}

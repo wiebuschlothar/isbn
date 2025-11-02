@@ -1,0 +1,69 @@
+#root {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.grid3 {
+  display: grid;
+  grid-template-rows: 10% 70% 20%;
+  height: 100vh; /* Make the grid take the full viewport height */
+}
+
+.panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+}
+
+.header {
+  background-color: #334155; /* slate-700 */
+  color: #ffffff;
+}
+
+.content {
+  background-color: #0ea5e9; /* sky-500 */
+  color: #111827; /* gray-900 */
+}
+
+.footer {
+  background-color: #1f2937; /* gray-800 */
+  color: #ffffff;
+}
+
+
+/* ScannerPanel shared styles moved from inline to CSS */
+.scanner-form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  max-width: 360px;
+  /* shared control height */
+  --control-h: 36px;
+}
+
+.label-control {
+  font-size: inherit;
+  display: inline-flex;
+  align-items: center;
+  height: var(--control-h);
+  padding: 0 12px;
+}
+
+.input-control {
+  height: var(--control-h);
+  padding: 0 12px;
+  box-sizing: border-box;
+}
+
+.button-control {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--control-h);
+  padding: 0 12px;
+  box-sizing: border-box;
+}
