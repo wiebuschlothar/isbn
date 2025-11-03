@@ -4,7 +4,9 @@ export type ScannerPanelProps = {
   onSubmitIsbn?: (isbn: string) => void;
 };
 
-export const ScannerPanel: React.FunctionComponent<ScannerPanelProps> = ({ onSubmitIsbn }) => {
+export const ScannerPanel: React.FunctionComponent<ScannerPanelProps> = ({
+  onSubmitIsbn,
+}) => {
   const [isbn, setIsbn] = React.useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -17,9 +19,6 @@ export const ScannerPanel: React.FunctionComponent<ScannerPanelProps> = ({ onSub
 
   return (
     <form onSubmit={handleSubmit} className="scanner-form">
-      <label htmlFor="isbn-input" className="label-control">
-        ISBN
-      </label>
       <input
         id="isbn-input"
         name="isbn"
