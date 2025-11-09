@@ -28,16 +28,24 @@ export function toBookInfo(result: unknown): { book: BookInfo | null; resultPres
 
   const imageLinks = (vi.imageLinks && typeof vi.imageLinks === "object") ? (vi.imageLinks as Record<string, unknown>) : undefined;
 
+  // Small helpers to make assignments concise and consistent
+  const asString = (v: unknown): string | undefined => (typeof v === "string" ? v : undefined);
+  const asNumber = (v: unknown): number | undefined => (typeof v === "number" ? (v as number) : undefined);
+  const asStringArray = (v: unknown): string[] | undefined =>
+    Array.isArray(v) ? (v as unknown[]).filter((a): a is string => typeof a === "string") : undefined;
+
+  const pick = (obj: Record<string, unknown> | undefined, key: string): unknown => (obj ? obj[key] : undefined);
+
   const book: BookInfo = {
-    title: typeof vi.title === "string" ? vi.title : undefined,
-    authors: Array.isArray(vi.authors) ? (vi.authors as unknown[]).filter((a): a is string => typeof a === "string") : undefined,
-    publisher: typeof vi.publisher === "string" ? vi.publisher : undefined,
-    publishedDate: typeof vi.publishedDate === "string" ? vi.publishedDate : undefined,
-    pageCount: typeof vi.pageCount === "number" ? (vi.pageCount as number) : undefined,
-    categories: Array.isArray(vi.categories) ? (vi.categories as unknown[]).filter((c): c is string => typeof c === "string") : undefined,
-    description: typeof vi.description === "string" ? vi.description : undefined,
-    thumbnail: imageLinks && typeof imageLinks.thumbnail === "string" ? (imageLinks.thumbnail as string) : undefined,
-    buyLink: typeof si.buyLink === "string" ? (si.buyLink as string) : undefined,
+    title: asString(vi.title),
+    authors: asStringArray(vi.authors),
+    publisher: asString(vi.publisher),
+    publishedDate: asString(vi.publishedDate),
+    pageCount: asNumber(vi.pageCount),
+    categories: asStringArray(vi.categories),
+    description: asString(vi.description),
+    thumbnail: asString(pick(imageLinks, "thumbnail")),
+    buyLink: asString(si.buyLink),
   };
 
   return { book, resultPresent };
