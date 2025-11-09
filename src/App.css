@@ -99,6 +99,18 @@
     color: #ffffff;
 }
 
+.footer-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+.footer-status {
+    font-size: 0.9rem;
+    opacity: 0.85;
+}
+
 
 /* ScannerPanel shared styles moved from inline to CSS */
 .scanner-form {
@@ -132,4 +144,28 @@
     height: var(--control-h);
     padding: 0 12px;
     box-sizing: border-box;
+}
+
+
+/* Interactions for IsbnGrid clickable cells */
+.isbn-grid__cell--clickable {
+    transition: background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.isbn-grid__cell--clickable:hover {
+    background: #f1f5f9; /* slate-100 */
+    border-color: #94a3b8; /* slate-400 */
+}
+.isbn-grid__cell--clickable:focus {
+    outline: 2px solid #3b82f6; /* blue-500 */
+    outline-offset: 2px;
+}
+
+/* Selected state for the currently active ISBN */
+.isbn-grid__cell--selected {
+    background: #fde68a; /* amber-200 */
+    border-color: #f59e0b; /* amber-500 */
+    box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.3) inset;
+}
+.isbn-grid__cell--selected:focus {
+    outline-color: #f59e0b;
 }
